@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.0.3 (Python 3.9.5 on win32)" generated="20210709 10:46:28.287" rpa="false" schemaversion="2">
+<suite id="s1" name="Verify Invalid Credentials Test" source="C:\OpenEMRApplication\LoginSuite\verify_invalid_credentials_test.robot">
+<test id="s1-t1" name="Verify Valid Credential Tests">
+<kw name="Append To Environment Variable" library="OperatingSystem">
+<arg>Path</arg>
+<arg>${EXECDIR}${/}drivers</arg>
+<doc>Appends given ``values`` to environment variable ``name``.</doc>
+<msg timestamp="20210709 10:46:28.622" level="INFO">Environment variable 'Path' set to value 'C:\OpenEMRApplication\venv\Scripts;C:\Program Files\Python39\Scripts\;C:\Program Files\Python39\;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Windows\CCM;C:\Windows\CCM;C:\Program Files (x86)\Sennheiser\SenncomSDK\;C:\Program Files (x86)\Webex\Plugins;C:\Program Files\PuTTY\;C:\Strawberry\c\bin;C:\Strawberry\perl\site\bin;C:\Strawberry\perl\bin;C:\Program Files\Perforce\;C:\Program Files\Java\jre1.8.0_201\bin;C:\Program Files (x86)\Microsoft SQL Server\150\DTS\Binn\;C:\Program Files\Azure Data Studio\bin;C:\Program Files\Git\cmd;C:\Python39\Scripts\;C:\Python39\;C:\Users\IRichard\AppData\Local\Microsoft\WindowsApps;C:\Users\IRichard\AppData\Local\atom\bin;C:\Program Files\Azure Data Studio\bin;C:\OpenEMRApplication\drivers'.</msg>
+<status status="PASS" starttime="20210709 10:46:28.621" endtime="20210709 10:46:28.622"/>
+</kw>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>browser=ff</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20210709 10:46:28.623" level="INFO">Opening browser 'ff' to base url 'None'.</msg>
+<msg timestamp="20210709 10:46:28.625" level="INFO">Firefox driver log is always forced to to: C:\OpenEMRApplication\geckodriver-1.log</msg>
+<status status="PASS" starttime="20210709 10:46:28.623" endtime="20210709 10:46:49.724"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20210709 10:46:49.736" endtime="20210709 10:46:49.740"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
+<arg>30s</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" starttime="20210709 10:46:49.741" endtime="20210709 10:46:49.746"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>url=https://demo.openemr.io/b/openemr/index.php</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20210709 10:46:49.758" level="INFO">Opening url 'https://demo.openemr.io/b/openemr/index.php'</msg>
+<status status="PASS" starttime="20210709 10:46:49.757" endtime="20210709 10:47:17.293"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id=authUser</arg>
+<arg>admin1</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20210709 10:47:17.299" level="INFO">Typing text 'admin1' into text field 'id=authUser'.</msg>
+<status status="PASS" starttime="20210709 10:47:17.296" endtime="20210709 10:47:17.532"/>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>id=clearPass</arg>
+<arg>pass1</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20210709 10:47:17.537" level="INFO">Typing password into text field 'id=clearPass'.</msg>
+<msg timestamp="20210709 10:47:17.572" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20210709 10:47:17.642" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20210709 10:47:17.535" endtime="20210709 10:47:17.642"/>
+</kw>
+<kw name="Select From List By Label" library="SeleniumLibrary">
+<arg>name=languageChoice</arg>
+<arg>English (Indian)</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<msg timestamp="20210709 10:47:17.645" level="INFO">Selecting options from selection list 'name=languageChoice' by label English (Indian).</msg>
+<status status="PASS" starttime="20210709 10:47:17.644" endtime="20210709 10:47:18.094"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath=//button[@type='submit']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20210709 10:47:18.099" level="INFO">Clicking element 'xpath=//button[@type='submit']'.</msg>
+<status status="PASS" starttime="20210709 10:47:18.097" endtime="20210709 10:47:21.023"/>
+</kw>
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<arg>xpath=//div[contains(text(),'Invalid')]</arg>
+<arg>Invalid username or password</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<msg timestamp="20210709 10:47:21.089" level="INFO">Element 'xpath=//div[contains(text(),'Invalid')]' contains text 'Invalid username or password'.</msg>
+<status status="PASS" starttime="20210709 10:47:21.025" endtime="20210709 10:47:21.090"/>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<arg>Flow Board</arg>
+<arg>50s</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20210709 10:48:21.955" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20210709 10:48:21.547" endtime="20210709 10:48:21.956"/>
+</kw>
+<msg timestamp="20210709 10:48:21.973" level="FAIL">Text 'Flow Board' did not appear in 50 seconds.</msg>
+<status status="FAIL" starttime="20210709 10:47:21.090" endtime="20210709 10:48:21.974"/>
+</kw>
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>OpenEMR</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<status status="NOT RUN" starttime="20210709 10:48:21.976" endtime="20210709 10:48:21.977"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="NOT RUN" starttime="20210709 10:48:21.978" endtime="20210709 10:48:21.978"/>
+</kw>
+<status status="FAIL" starttime="20210709 10:46:28.620" endtime="20210709 10:48:21.979">Text 'Flow Board' did not appear in 50 seconds.</status>
+</test>
+<doc>This suite will handle all the tc related to
+the invalid credentials - OEM - 102</doc>
+<status status="FAIL" starttime="20210709 10:46:28.291" endtime="20210709 10:48:21.987"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Verify Invalid Credentials Test">Verify Invalid Credentials Test</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
